@@ -41,7 +41,7 @@ import { AuthContext } from '../../context/context';
         }
         setLoading(true);
         
-        const data = await fetch("http://localhost:8000/sign-in", {
+        const data = await fetch("https://week-5-task-backend.vercel.app/sign-in", {
           method: "POST",
           headers: {
               'Content-Type': 'application/json',
@@ -68,13 +68,13 @@ import { AuthContext } from '../../context/context';
     return (
         <div>
           {loading && <div className='flex justify-center items-center overlay h-screen w-screen opacity-55 bg-black absolute left-0 top-0 cursor-wait'>
-          <div className="lds-spinner-login"><div></div><div></div></div>
+          <div className="lds-ring"><div></div><div></div></div>
           </div>}
         <h1 className='text-center py-5'>Login</h1>
        <form className='max-w-[500px] flex gap-3 flex-col mx-auto' onSubmit={onLogUserIn}>
             <input className={`outline-none border py-2 px-2 block w-full ${emailValidity && "border-red-500"}`} type="text" placeholder={`${!emailValidity ? "Enter name here..." : "Email is compulsory..."}`} onChange={handleInputChange}  name='email'/>
             <input className={`outline-none border py-2 px-2 block w-full ${passwordValidity && "border-red-500"}`} type="password" placeholder={`${!passwordValidity ? "Enter password here..." : "Password is compulsory..."}`} onChange={handleInputChange}  name='password'/>
-          <button className='border w-full py-2 cursor-pointer hover:bg-slate-100 flex justify-center items-center gap-4' type="submit">SIGN IN</button>
+          <button className='border w-full py-2 cursor-pointer hover:bg-slate-800 bg-black text-white flex justify-center items-center gap-4' type="submit">SIGN IN</button>
        </form>
     </div>
     );
