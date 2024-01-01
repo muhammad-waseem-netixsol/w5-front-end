@@ -90,7 +90,7 @@ const SignUp = () => {
             <input className={`outline-none border py-2 px-2 block w-full ${nameValidity && "border-red-500"}`} type="text" placeholder={`${!nameValidity ? "Enter name here..." : "Name is compulsory..."}`} onChange={handleInputChange}  name='name'/>
             <input className={`outline-none border py-2 px-2 block w-full ${emailValidity && "border-red-500"}`} type="text" placeholder={`${!emailValidity ? "Enter name here..." : "Email is compulsory..."}`} onChange={handleInputChange}  name='email'/>
             <input className={`outline-none border py-2 px-2 block w-full ${passwordValidity && "border-red-500"}`} type="password" placeholder={`${!passwordValidity ? "Enter password here..." : "Password is compulsory..."}`} onChange={handleInputChange}  name='password'/>
-            <button  className='border w-full py-2 cursor-pointer hover:bg-slate-100 flex justify-center items-center gap-4' type="submit">SIGN UP</button>
+            <button  className='border w-full py-2 cursor-pointer hover:bg-slate-800 bg-black text-white flex justify-center items-center gap-4' type="submit">SIGN UP</button>
        </form>
     </div>
     );
