@@ -4,14 +4,14 @@ import {motion, AnimatePresence } from "framer-motion";
 import { AuthContext } from "../../context/context";
 import "./Navbar.css";
 import toast from "react-hot-toast";
-import { FaHamburger } from "react-icons/fa";
+import { FaHamburger, FaOpencart } from "react-icons/fa";
 import { GiCrossMark } from "react-icons/gi";
 
 const Navbar = (props) => {
   const auth = useContext(AuthContext);
   const [searchKeyWord, setSearchKeyWord] = useState("");
   const [close, setClose] = useState(true);
-  console.log(auth)
+ 
   const onSearchProduct = ()=> {
     if(searchKeyWord.trim() === ""){
       return toast.error("Please enter something...");
@@ -48,7 +48,7 @@ const Navbar = (props) => {
     <AnimatePresence>
     <div className="grid bg-white lg:border-2 lg:rounded-full sm:px-5 my-2 shadow w-full grid-cols-8 lg:grid-cols-3 gap-y-5 justify-between py-3">
       <motion.div  initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.1}} className="hidden lg:flex col-span-1 justify-center sm:justify-start items-center">
-      <i className="fa fa-shopping-bag text-[50px] shopping-bag" aria-hidden="true"></i>
+      <FaOpencart />
       </motion.div>
       <motion.div  initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.1}} className="flex lg:hidden justify-center order-last items-center text-2xl col-span-1" onClick={onOpenModal}>
       <FaHamburger />
