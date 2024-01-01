@@ -46,7 +46,7 @@ const Navbar = (props) => {
   };
   return (
     <AnimatePresence>
-    <div className="grid lg:border-2 lg:rounded-full sm:px-5 my-2 shadow w-full grid-cols-8 lg:grid-cols-3 gap-y-5 justify-between py-3">
+    <div className="grid bg-white lg:border-2 lg:rounded-full sm:px-5 my-2 shadow w-full grid-cols-8 lg:grid-cols-3 gap-y-5 justify-between py-3">
       <motion.div  initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.1}} className="hidden lg:flex col-span-1 justify-center sm:justify-start items-center">
       <i className="fa fa-shopping-bag text-[50px] shopping-bag" aria-hidden="true"></i>
       </motion.div>
