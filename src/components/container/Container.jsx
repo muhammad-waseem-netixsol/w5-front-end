@@ -79,7 +79,7 @@ const Container = () => {
     return (
       <AuthContext.Provider  value={{isLoggedIn:!!token,token:token,userId: userId ,login:login, logout:logout}}>
         <Router>
-          <div className='container mx-auto px-2'>
+          <div className='container mx-auto px-2  min-h-screen'>
             <Navbar onSearch={search}/>
             <Routes>
               {routes}
