@@ -26,7 +26,7 @@ import { AuthContext } from '../../context/context';
         event.preventDefault();
         if(user.email.trim() === ""){
           setEmailValidity(true);
-          toast.error("Email Can Be Empty!")
+          toast.error("Email Can't Be Empty!")
           return;
         }
         if(!user.email.trim().includes("@") || !user.email.trim().includes(".com") || !user.email.trim().length > 12){
@@ -72,7 +72,7 @@ import { AuthContext } from '../../context/context';
           </div>}
         <h1 className='text-center py-5'>Login</h1>
        <form className='max-w-[500px] flex gap-3 flex-col mx-auto' onSubmit={onLogUserIn}>
-            <input className={`outline-none border py-2 px-2 block w-full ${emailValidity && "border-red-500"}`} type="text" placeholder={`${!emailValidity ? "Enter name here..." : "Email is compulsory..."}`} onChange={handleInputChange}  name='email'/>
+            <input className={`outline-none border py-2 px-2 block w-full ${emailValidity && "border-red-500"}`} type="text" placeholder={`${!emailValidity ? "Enter email here..." : "Email is compulsory..."}`} onChange={handleInputChange}  name='email'/>
             <input className={`outline-none border py-2 px-2 block w-full ${passwordValidity && "border-red-500"}`} type="password" placeholder={`${!passwordValidity ? "Enter password here..." : "Password is compulsory..."}`} onChange={handleInputChange}  name='password'/>
           <button className='border w-full py-2 cursor-pointer hover:bg-slate-800 bg-black text-white flex justify-center items-center gap-4' type="submit">SIGN IN</button>
        </form>
