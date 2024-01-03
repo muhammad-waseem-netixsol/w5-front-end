@@ -73,7 +73,7 @@ const Navbar = (props) => {
         {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/add`}>Add</Link></motion.li>}
         {!auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/login`}>Login</Link></motion.li>}
        {!auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/signup`}>Signup</Link></motion.li>}
-        {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><i onClick={auth.logout} className="mx-2 fa-solid fa-right-from-bracket cursor-pointer"></i></motion.li>}
+        {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1 cursor-pointer" onClick={auth.logout}><i className="mx-2 fa-solid fa-right-from-bracket cursor-pointer"></i></motion.li>}
       </motion.ul>
     </div>
     <div className={`flex justify-center items-center overlay h-screen w-screen opacity-55 bg-black lg:hidden z-10 absolute ${close && "hidden"} left-0 top-0 cursor-wait`}></div>
