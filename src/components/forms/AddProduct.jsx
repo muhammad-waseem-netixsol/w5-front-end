@@ -123,10 +123,10 @@ const AddProduct = () => {
                 {!titleIsValid && <p className='text-red-500 text-sm'>Title is required!</p>}
                 <input className='outline-none border py-2 px-2 block w-full' type="number" placeholder='Enter price...' onChange={handleInputChange} value={product.price} name='price'/>
                 {!priceIsValid && <p className='text-red-500 text-sm'>price is required!</p>}
-                <button type='button' className='border py-2 px-2 block w-full bg-slate-100 hover:bg-white' onClick={onClickImageButton}><i className="fa-solid fa-plus"></i> Pick an image</button>
+                <button type='button' className='border py-2 px-2 block w-full hover:bg-slate-100 bg-white' onClick={onClickImageButton}><i className="fa-solid fa-plus"></i> Pick an image</button>
                 <input className='hidden' onChange={onSelectFile} type="file" name="image" ref={imageRef} />
-                <div className={`${!imageValidity && "border-red-500"} border h-[200px] w-full sm:w-[200px] mx-auto flex justify-center items-center`}>{image !== null || editMode ? <img className='block h-full w-full' src={image} alt='grocers' /> : "Preview"}</div>
-                {!editMode &&  <button disabled={loading} className='border w-full py-2 cursor-pointer hover:bg-slate-100 flex justify-center items-center gap-4' type="submit">{ !editMode && loading && !error ? "Adding Product" : "Add Product" }{loading && !error && <div className='loader inline-block'></div>}</button>}
+                <div className={`${!imageValidity && "border-red-500"} border h-[200px] w-full sm:w-[200px] bg-white mx-auto flex justify-center items-center`}>{image !== null || editMode ? <img className='block h-full w-full' src={image} alt='grocers' /> : "Preview"}</div>
+                {!editMode &&  <button disabled={loading} className='border w-full py-2 cursor-pointer bg-black text-white hover:opacity-80 flex justify-center items-center gap-4' type="submit">{ !editMode && loading && !error ? "Adding Product" : "Add Product" }{loading && !error && <div className='loader inline-block'></div>}</button>}
                 {editMode &&  <button disabled={loading} className='border w-full py-2 cursor-pointer hover:bg-slate-100 flex justify-center items-center gap-4' type="submit">{ !editMode && loading && !error ? "Editing Product" : "Edit Product" }{loading && !error && <div className='loader inline-block'></div>}</button>}
            </form>
         </div>
