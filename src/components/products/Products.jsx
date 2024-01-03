@@ -54,7 +54,7 @@ const Products = (props) => {
         </h1>
       )}
       {loading && <h1 className="text-center">Fetching Products....</h1>}
-      <div className="grid grid-cols-1 sm:grid-cols-2 justify-center lg:grid-cols-4 gap-y-2 my-5 place-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 justify-center lg:grid-cols-3 gap-x-3 gap-y-2 my-5 place-items-center">
         {products.length > 0 &&
           products.map((p) => (
             <Product key={p?._id} prod={p} ondelete={deletingPr} />
