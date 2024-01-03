@@ -127,7 +127,7 @@ const AddProduct = () => {
                 <input className='hidden' onChange={onSelectFile} type="file" name="image" ref={imageRef} />
                 <div className={`${!imageValidity && "border-red-500"} border h-[200px] w-full sm:w-[200px] bg-white mx-auto flex justify-center items-center`}>{image !== null || editMode ? <img className='block h-full w-full' src={image} alt='grocers' /> : "Preview"}</div>
                 {!editMode &&  <button disabled={loading} className='border w-full py-2 cursor-pointer bg-black text-white hover:opacity-80 flex justify-center items-center gap-4' type="submit">{ !editMode && loading && !error ? "Adding Product" : "Add Product" }{loading && !error && <div className='loader inline-block'></div>}</button>}
-                {editMode &&  <button disabled={loading} className='border w-full py-2 cursor-pointer hover:bg-slate-100 flex justify-center items-center gap-4' type="submit">{ !editMode && loading && !error ? "Editing Product" : "Edit Product" }{loading && !error && <div className='loader inline-block'></div>}</button>}
+                {editMode &&  <button disabled={loading} className='border w-full py-2 cursor-pointer bg-black text-white hover:opacity-80 flex justify-center items-center gap-4' type="submit">{ !editMode && loading && !error ? "Editing Product" : "Edit Product" }{loading && !error && <div className='loader inline-block'></div>}</button>}
            </form>
         </div>
     );
