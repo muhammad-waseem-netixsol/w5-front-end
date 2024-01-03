@@ -82,7 +82,7 @@ const SignUp = () => {
       }
     return (
         <div className=''>
-          {loading && <div className='flex justify-center items-center overlay h-screen min-w-screen max-w-screen opacity-55 bg-black absolute left-0 top-0 cursor-wait'>
+          {loading && <div className='flex justify-center items-center overlay h-screen w-screen opacity-55 bg-black absolute left-0 top-0 cursor-wait'>
           <div className="lds-ripple"><div></div><div></div></div>
           </div>}
         <h1 className='text-center py-5'>Sign Up</h1>
