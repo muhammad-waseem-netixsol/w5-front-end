@@ -46,14 +46,15 @@ const Navbar = (props) => {
   };
   return (
     <AnimatePresence>
-    <div className="grid bg-white lg:border-2 lg:rounded-full sm:px-5 my-2 shadow w-full grid-cols-8 lg:grid-cols-3 gap-y-5 justify-between py-3">
-      <motion.div  initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.1}} className="hidden lg:flex col-span-1 justify-center sm:justify-start items-center">
-      <FaOpencart />
+    <div className={`grid bg-white lg:border-2 lg:rounded-full sm:px-5 my-2 shadow w-full ${auth.isLoggedIn ? "grid-cols-7 sm:grid-cols-3" : "grid-cols-2"} gap-y-5 justify-between py-3`}>
+      <motion.div  initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.1}} className="sm:flex sm:col-span-1 max-w-max px-2 sm:justify-start items-center">
+      <img className="h-[40px]" src="https://cdn-icons-png.flaticon.com/128/5948/5948079.png" alt="logo" />
       </motion.div>
-      <motion.div  initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.1}} className="flex lg:hidden justify-center order-last items-center text-2xl col-span-1" onClick={onOpenModal}>
+      <motion.div  initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.1}} className="flex sm:hidden sm:col-span-1 px-2 justify-end items-center order-last text-2xl" onClick={onOpenModal}>
       <FaHamburger />
       </motion.div>
-      <motion.div initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.2}} className="lg:col-span-1 mx-auto w-full flex justify-between items-center col-span-7">
+      {/* {!auth.isLoggedIn && <div></div>} */}
+      {auth.isLoggedIn && <motion.div initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.2}} className="col-span-5 sm:col-span-1 mx-auto flex justify-between items-center">
       <div className="relative border rounded-full h-full w-full overflow-hidden flex justify-between items-center">
       {searchKeyWord.length > 0 && <i onClick={clearSearch} className="fa fa-times-circle absolute right-[36%] sm:right-[23%] lg:right-[30%] text-red-500 cursor-pointer top=[50%]" aria-hidden="true"></i>}
         <input
@@ -67,9 +68,9 @@ const Navbar = (props) => {
           Enter
         </button>
       </div>
-      </motion.div>
-      <motion.ul className="hidden lg:flex justify-end items-center gap-2 col-span-1">
-        <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/`}>Home</Link></motion.li>
+      </motion.div>}
+      <motion.ul className="hidden sm:flex justify-end items-center gap-2">
+      {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/`}>Home</Link></motion.li>}
         {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/add`}>Add</Link></motion.li>}
         {!auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/login`}>Login</Link></motion.li>}
        {!auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/signup`}>Signup</Link></motion.li>}
