@@ -29,17 +29,20 @@ const Products = (props) => {
     const fetchProducts = async () => {
       setLoading(true);
       const response = await fetch("https://week-5-task-backend.vercel.app/products", {
-        method: "GET",
+        method: "POST",
+        body: JSON.stringify({
+          id: auth.userId
+        }),
         headers: {
           "Content-Type": "application/json",
           authorization: "Bearer " + auth.token,
         },
       });
+      setLoading(false);
       const loadedProducts = await response.json();
-
       setProducts(loadedProducts);
       setFiltered(loadedProducts);
-      setLoading(false);
+      
     };
     fetchProducts();
   }, [refetch]);

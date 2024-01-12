@@ -80,6 +80,7 @@ const AddProduct = () => {
                 const formData = new FormData();
                 formData.append('title', product.title);
                 formData.append('price', product.price);
+                formData.append('creator', auth.userId);
                 formData.append('image', file);
                 if(product.title.trim() === ""){
                   return setTitleIsValid(false);

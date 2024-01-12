@@ -17,12 +17,14 @@ const Container = () => {
       type: "",
       searchKeyWord: ""
     });
+    // on logout
     const logout = useCallback(()=>{
       setToken(null);
       setUserId(null);
       setTokenExpiration(null)
       localStorage.removeItem("user");
     }, []);
+    // on login
   const login = useCallback((uid, jwtToken, expirationDate)=>{
     const tokenExpirationDate = expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
     setTokenExpiration(tokenExpirationDate);
@@ -34,6 +36,7 @@ const Container = () => {
       expiration: tokenExpirationDate.toISOString()
     }))
   }, []);
+  // handling logout timer
   useEffect(()=> {
     if(token && tokenExpiration){
       let remainingTime = tokenExpiration.getTime() - new Date().getTime()
@@ -42,6 +45,7 @@ const Container = () => {
       clearTimeout(logoutTimer);
     }
   },[token, logout, tokenExpiration])
+  // setting data on loggin user in
   useEffect(()=> {
     const userDetails = JSON.parse(localStorage.getItem("user"));
     if(userDetails && userDetails.token && new Date(userDetails.expiration) > new Date()){
