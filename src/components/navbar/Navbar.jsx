@@ -56,7 +56,7 @@ const Navbar = (props) => {
       {/* {!auth.isLoggedIn && <div></div>} */}
       {auth.isLoggedIn && <motion.div initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.2}} className="col-span-5 sm:col-span-1 mx-auto flex justify-between items-center">
       <div className="relative border rounded-full h-full w-full overflow-hidden flex justify-between items-center">
-      {searchKeyWord.length > 0 && <i onClick={clearSearch} className="fa fa-times-circle absolute right-[36%] sm:right-[23%] lg:right-[30%] text-red-500 cursor-pointer top=[50%]" aria-hidden="true"></i>}
+      {/* {searchKeyWord.length > 0 && <i onClick={clearSearch} className="fa fa-times-circle absolute right-[36%] sm:right-[23%] lg:right-[30%] text-red-500 cursor-pointer top=[50%]" aria-hidden="true"></i>} */}
         <input
           className="rounded-l-full text-sm sm:text-base lg:text-lg block w-full outline-none py-3 px-2"
           type="text"
@@ -77,8 +77,8 @@ const Navbar = (props) => {
         {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1 cursor-pointer" onClick={auth.logout}><i className="mx-2 fa-solid fa-right-from-bracket cursor-pointer"></i></motion.li>}
       </motion.ul>
     </div>
-    <div className={`flex justify-center items-center overlay h-screen w-screen opacity-55 bg-black lg:hidden z-10 absolute ${close && "hidden"} left-0 top-0 cursor-wait`}></div>
-    <motion.div className={`${close && "hidden"} lg:hidden h-screen z-20 border rounded-lg absolute top-0 right-0 w-[75%] bg-white opacity-100`} initial={{ scale:0, x:100}} animate={{scale:1,x:0}} transition={{type: "spring", delay:0.3}}>
+    <div onClick={onCloseModal} className={`flex justify-center items-center overlay h-screen w-screen opacity-55 bg-black lg:hidden z-10 absolute ${close && "hidden"} left-0 top-0 cursor-wait`}></div>
+    <motion.div onClick={e => e.stopPropagation()} className={`${close && "hidden"} lg:hidden h-screen z-20 border rounded-lg absolute top-0 right-0 w-[75%] bg-white opacity-100`} initial={{ scale:0, x:100}} animate={{scale:1,x:0}} transition={{type: "spring", delay:0.3}}>
     <motion.ul className="lg:flex justify-end items-center gap-2 col-span-1">
         <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3 w-full flex justify-end" onClick={onCloseModal}><GiCrossMark /></motion.li>
         <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><Link to={`/`}>Home</Link></motion.li>
