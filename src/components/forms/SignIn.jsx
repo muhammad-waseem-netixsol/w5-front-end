@@ -72,19 +72,18 @@ const SignIn = () => {
   };
   return (
     <div className="md:grid md:grid-cols-2 h-full md:justify-center">
-      <div className="flex justify-center items-center">
-        {" "}
-        <img src={main_img} alt="" />
-      </div>
-
       {loading && (
-        <div className="flex justify-center items-center overlay h-screen w-screen opacity-55 bg-black absolute left-0 top-0 cursor-wait">
+        <div className="flex justify-center items-center overlay h-screen w-screen opacity-55 bg-black fixed left-0 top-0 cursor-wait">
           <div className="lds-ring">
             <div></div>
             <div></div>
           </div>
         </div>
       )}
+      <div className="flex justify-center items-center">
+        {" "}
+        <img src={main_img} alt="" />
+      </div>
       <div className="md:flex md:justify-center md:items-center">
         <form
           className="sm:max-w-[500px] w-full flex gap-3 flex-col mx-auto"
