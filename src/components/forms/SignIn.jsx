@@ -73,7 +73,7 @@ const SignIn = () => {
   return (
     <div className="md:grid md:grid-cols-2 h-full md:justify-center">
       {loading && (
-        <div className="flex justify-center items-center overlay max-h-screen min-h-screen min-w-screen max-w-screen opacity-55 bg-black absolute left-0 top-0 cursor-wait">
+        <div className="flex justify-center items-center overlay h-full w-full m-0 p-0 opacity-55 bg-black absolute left-0 top-0 cursor-wait">
           <div className="lds-ring">
             <div></div>
             <div></div>
