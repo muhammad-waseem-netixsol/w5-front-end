@@ -5,5 +5,6 @@ export const AuthContext = createContext({
     logout:()=>{},
     userId: null,
     token: null,
-    onSearchProduct:()=>{}
+    onSearchProduct:()=>{}, 
+    name: ""
 });

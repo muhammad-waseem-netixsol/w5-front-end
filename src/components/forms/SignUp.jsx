@@ -42,9 +42,9 @@ const SignUp = () => {
           toast.error("Email is not Valid!")
           return;
         }
-        if(user.password.trim() === ""){
+        if(user.password.trim() === "" || user.password.trim().length < 6){
           setPasswordValidity(true);
-          toast.error("Password can not be empty!");
+          toast.error("Password can not be empty and less than 6 characters");
           return;
         }
         setLoading(true);

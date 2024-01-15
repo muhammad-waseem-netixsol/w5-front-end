@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {motion, AnimatePresence } from "framer-motion";
 import { AuthContext } from "../../context/context";
@@ -6,12 +6,15 @@ import "./Navbar.css";
 import toast from "react-hot-toast";
 import { FaHamburger, FaOpencart } from "react-icons/fa";
 import { GiCrossMark } from "react-icons/gi";
+import { useJwt } from "react-jwt";
 
 const Navbar = (props) => {
   const auth = useContext(AuthContext);
+ 
+  let user = useJwt(auth.token);
   const [searchKeyWord, setSearchKeyWord] = useState("");
   const [close, setClose] = useState(true);
- 
+  console.log(user)
   const onSearchProduct = ()=> {
     if(searchKeyWord.trim() === ""){
       return toast.error("Please enter something...");
@@ -70,6 +73,7 @@ const Navbar = (props) => {
       </div>
       </motion.div>}
       <motion.ul className="hidden sm:flex justify-end items-center gap-2">
+      {/* {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><span>{user?.decodedToken?.user?.name}</span></motion.li>} */}
       {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/`}>Home</Link></motion.li>}
         {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/add`}>Add</Link></motion.li>}
         {!auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 py-1"><Link to={`/login`}>Login</Link></motion.li>}

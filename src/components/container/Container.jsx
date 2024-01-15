@@ -13,6 +13,7 @@ const Container = () => {
     const [token, setToken] = useState(null);
     const [tokenExpiration, setTokenExpiration] = useState();
     const [userId, setUserId] = useState(null);
+    const [name, setName] = useState("");
     const [searchQ, setSearchQ] = useState({
       type: "",
       searchKeyWord: ""
@@ -30,6 +31,7 @@ const Container = () => {
     setTokenExpiration(tokenExpirationDate);
     setToken(jwtToken);
     setUserId(uid);
+    setName(name)
     localStorage.setItem("user", JSON.stringify({
       userId:uid,
       token:jwtToken,
@@ -81,7 +83,7 @@ const Container = () => {
     );
   }
     return (
-      <AuthContext.Provider  value={{isLoggedIn:!!token,token:token,userId: userId ,login:login, logout:logout}}>
+      <AuthContext.Provider  value={{isLoggedIn:!!token,name:name, token:token,userId: userId ,login:login, logout:logout}}>
         <Router>
           <div className='container mx-auto px-2  min-h-screen'>
             <Navbar onSearch={search}/>
