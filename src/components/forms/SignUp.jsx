@@ -80,6 +80,13 @@ const SignUp = () => {
           console.log(response)
           return navigate("/login");
       }
+      useEffect(()=> {
+        if(loading){
+          document.body.style.overflow = "hidden";
+        }else{
+          document.body.style.overflow = "unset";
+        }
+      }, [loading]);
     return (
         <div className='md:grid flex flex-col-reverse md:grid-cols-2 h-full md:justify-center'>
           {loading && <div className=' flex justify-center items-center overlay h-full w-full m-0 p-0 opacity-55 bg-black absolute left-0 top-0 cursor-wait'>

@@ -49,6 +49,13 @@ const Products = (props) => {
   const deletingPr = () => {
     setRefetch((prev) => !prev);
   };
+  useEffect(()=> {
+    if(loading){
+      document.body.style.overflow = "hidden";
+    }else{
+      document.body.style.overflow = "unset";
+    }
+  }, [loading]);
   return (
     <>
       {products?.length === 0 && !loading && (
@@ -57,7 +64,7 @@ const Products = (props) => {
         </h1>
       )}
       {loading && <h1 className="text-center">Fetching Products....</h1>}
-      <div className="grid grid-cols-1 sm:grid-cols-2 justify-center lg:grid-cols-3 gap-x-3 gap-y-2 my-5 place-items-center">
+      <div className="flex justify-center my-5 gap-5 flex-wrap ">
         {products.length > 0 &&
           products.map((p) => (
             <Product key={p?._id} prod={p} ondelete={deletingPr} />

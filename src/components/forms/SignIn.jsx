@@ -70,6 +70,13 @@ const SignIn = () => {
     auth.login(response.userId, response.token);
     return navigate("/");
   };
+  useEffect(()=> {
+    if(loading){
+      document.body.style.overflow = "hidden";
+    }else{
+      document.body.style.overflow = "unset";
+    }
+  }, [loading]);
   return (
     <div className="md:grid md:grid-cols-2 h-full md:justify-center">
       {loading && (
