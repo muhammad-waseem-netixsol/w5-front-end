@@ -81,11 +81,11 @@ const Navbar = (props) => {
     <motion.div onClick={e => e.stopPropagation()} className={`${close && "hidden"} lg:hidden h-screen z-20 border rounded-lg absolute top-0 right-0 w-[75%] bg-white opacity-100`} initial={{ scale:0, x:100}} animate={{scale:1,x:0}} transition={{type: "spring", delay:0.3}}>
     <motion.ul className="lg:flex justify-end items-center gap-2 col-span-1">
         <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3 w-full flex justify-end" onClick={onCloseModal}><GiCrossMark /></motion.li>
-        <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><Link to={`/`}>Home</Link></motion.li>
-        {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><Link to={`/add`}>Add</Link></motion.li>}
-        {!auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><Link to={`/login`}>Login</Link></motion.li>}
-       {!auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><Link to={`/signup`}>Signup</Link></motion.li>}
-        {auth.isLoggedIn && <motion.li initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><i onClick={auth.logout} className="mx-2 fa-solid fa-right-from-bracket"></i></motion.li>}
+        <motion.li onClick={onCloseModal} initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><Link to={`/`}>Home</Link></motion.li>
+        {auth.isLoggedIn && <motion.li onClick={onCloseModal} initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><Link to={`/add`}>Add</Link></motion.li>}
+        {!auth.isLoggedIn && <motion.li onClick={onCloseModal} initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><Link to={`/login`}>Login</Link></motion.li>}
+       {!auth.isLoggedIn && <motion.li onClick={onCloseModal} initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><Link to={`/signup`}>Signup</Link></motion.li>}
+        {auth.isLoggedIn && <motion.li onClick={onCloseModal} initial={{ scale:1, y:-100}} animate={{y:0}} transition={{type: "spring", delay:0.3}} className="text-black rounded px-3 border border-b py-3"><i onClick={auth.logout} className="mx-2 fa-solid fa-right-from-bracket"></i></motion.li>}
       </motion.ul>
       </motion.div>
   
