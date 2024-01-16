@@ -6,6 +6,7 @@ import {useNavigate, Link} from "react-router-dom";
 import { AuthContext } from '../../context/context';
 import "./Products.css";
 import { ImSpinner9 } from "react-icons/im";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Product = ({ prod, ondelete }) => {
   const auth = useContext(AuthContext);
@@ -37,16 +38,17 @@ const Product = ({ prod, ondelete }) => {
   
         <img className=" block w-[270px] h-[250px]" src={prod.image} alt="" />
    
-    <div className="p-5">
+    <div className="p-5 bg-gray-50">
         
             <h5 className="mb-2 tracking-tight text-gray-900 ">{prod.title}</h5>
         
         <p className="mb-3 font-normal text-[#DB4444]">{prod.price} $</p>
-        <div className="w-full flex justify-center items-center">
-          <button className="border flex justify-center items-center bg-black py-2 text-white gap-3 w-full" onClick={deleteProd}>{deleting ? "Deleting" : "Delete"}
-          {deleting && <span className="animate-spin"><ImSpinner9 /></span>}</button>
+        <div className="w-full flex justify-start gap-2 items-center">
+        {auth.isLoggedIn && <Link to={`edit`} state={editProd}><button className="border hover:bg-black hover:text-white hover:border-white py-2 px-3 block w-full"><i className="fa-regular fa-pen-to-square"></i>  </button></Link>}
+         
+          <button className="hover:bg-black hover:text-white hover:border-white border flex justify-center items-center py-3 gap-3 px-3" onClick={deleteProd}>
+          <RiDeleteBin5Line />{deleting && <span className="animate-spin"><ImSpinner9 /></span>}</button>
           
-          {auth.isLoggedIn && <button className="border bg-black py-2 text-white block w-full"><Link to={`edit`} state={editProd}>Edit </Link> </button>}
           </div>
       </div>
     </div>
